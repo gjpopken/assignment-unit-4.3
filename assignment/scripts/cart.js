@@ -1,59 +1,78 @@
 console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
+
 let basket = [];
 const maxItems = 5;
 
-//Required
 function addItem(item) {
-    if (!isFull(basket)) {
+    if (!isFull()) {
         basket.push(item);
         return true;
     } else {
         return false;
     }
 }
-//console.log('Adding eggs to my basket', '\n', addItem('eggs'), '\nBasket:', basket);
-//console.log('Added some items. Now:', addItem('milk'), addItem('water'), addItem('pasta'), basket);
-
 function listItems() {
     let list = '';
-    for (let i of basket) {
+    for (i of basket) {
         list += i + '\n';
     }
     console.log(list);
 }
 
-//listItems();
 
 function empty() {
     basket = [];
-    console.log('No more items in the basket:', basket);
 }
 
-empty();
-console.log(basket);
-
-
-
-
-
-
-
-
-
-
-//Stretch
-
-
-
-function isFull(array) {
-    if (array.length < maxItems) {
+function isFull() {
+    if (basket.length < 5) {
+       // console.log('the basket isn\'t full');
         return false;
+        
     } else {
+       // console.log('the basket is full');
         return true;
+        
     }
 }
+
+function removeItem(item){
+    const position = basket.indexOf(item);
+    if (position != -1) {
+        basket.splice(position, 1);
+    } else {
+        return null;
+    }
+}
+
+
+console.log('There are', basket.length, 'items in the basket', '\nIs the basket full?', isFull());
+console.log('I added eggs to the basket:', addItem('eggs'), basket);
+console.log('I added eggs to the basket:', addItem('eggs'), basket);
+console.log('I added eyes to the basket:', addItem('eyes'), basket);
+console.log('I added eggs to the basket:', addItem('eggs'), basket);
+console.log('I added eggs to the basket:', addItem('eggs'), basket);
+console.log('I added eggs to the basket:', addItem('eggs'), basket);
+console.log('I added eggs to the basket:', addItem('eggs'), basket);
+console.log('Is it full now?', isFull());
+console.log('I am trying to add another egg', addItem('eggie'));
+addItem('milk');
+listItems();
+removeItem('eyes');
+console.log('Now we have', basket);
+empty();
+console.log('I\'m emptying my basket. Now:', basket);
+console.log('Removing eyes from basket');
+
+
+
+
+
+
+
+
 
 
 // DO NOT MODIFY

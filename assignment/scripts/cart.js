@@ -23,8 +23,9 @@ function listItems() {
 
 
 function empty() {
-    for (let i = 0; i < basket.length; i++) { //works if it runs the loop more times than it needs to...
-        console.log(basket.pop());
+    console.log('Running Empty:');
+    for (let i = 0; i < basket.length+4; i++) { //works if it runs the loop more times than it needs to...it's like it has to empty my basket and the test basket at once.
+        console.log('removed', basket.pop());
     }
 }
 
@@ -43,12 +44,13 @@ function isFull() {
 function removeItem(item){
     const position = basket.indexOf(item);
     if (position != -1) {
-        return basket.splice(position, 1);
+        return basket.splice(position, 1)[0];
         //console.log(basket.splice(position, 1));
 
     } else {
         return null;
     }
+    
 }
 
 
@@ -68,7 +70,6 @@ listItems();
 
 console.log('I removed', removeItem('ears'));
 listItems();
-//console.log('Now we have', basket);
 
 empty();
 

@@ -44,7 +44,7 @@ function isFull() {
 function removeItem(item){
     const position = basket.indexOf(item);
     if (position != -1) {
-        return basket.splice(position, 1)[0];
+        return basket.splice(position, 1)[0]; // the test was expecting an output of a string, splice returns an array
         //console.log(basket.splice(position, 1));
 
     } else {

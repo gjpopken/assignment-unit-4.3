@@ -41,7 +41,7 @@ function isFull() {
 function removeItem(item){
     const position = basket.indexOf(item);
     if (position != -1) {
-        basket.splice(position, 1);
+        return basket.splice(position, 1);
     } else {
         return null;
     }
@@ -49,6 +49,7 @@ function removeItem(item){
 
 
 console.log('There are', basket.length, 'items in the basket', '\nIs the basket full?', isFull());
+
 console.log('I added eggs to the basket:', addItem('eggs'), basket);
 console.log('I added eggs to the basket:', addItem('eggs'), basket);
 console.log('I added eyes to the basket:', addItem('eyes'), basket);
@@ -56,15 +57,19 @@ console.log('I added eggs to the basket:', addItem('eggs'), basket);
 console.log('I added eggs to the basket:', addItem('eggs'), basket);
 console.log('I added eggs to the basket:', addItem('eggs'), basket);
 console.log('I added eggs to the basket:', addItem('eggs'), basket);
+
 console.log('Is it full now?', isFull());
-console.log('I am trying to add another egg', addItem('eggie'));
-addItem('milk');
+
 listItems();
-removeItem('eyes');
+
+console.log('I removed', removeItem('eyes'));
+
 console.log('Now we have', basket);
+
 empty();
+
 console.log('I\'m emptying my basket. Now:', basket);
-console.log('Removing eyes from basket');
+
 
 
 

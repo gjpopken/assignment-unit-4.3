@@ -11,7 +11,7 @@ function addItem(item) {
         return true;
     } else {
         return false;
-    }
+   }
 }
 function listItems() {
     let list = '';
@@ -23,7 +23,9 @@ function listItems() {
 
 
 function empty() {
-    basket = [];
+    for (let i = 0; i < basket.length; i++) { //works if it runs the loop more times than it needs to...
+        console.log(basket.pop());
+    }
 }
 
 function isFull() {
@@ -42,6 +44,8 @@ function removeItem(item){
     const position = basket.indexOf(item);
     if (position != -1) {
         return basket.splice(position, 1);
+        //console.log(basket.splice(position, 1));
+
     } else {
         return null;
     }
@@ -51,9 +55,9 @@ function removeItem(item){
 console.log('There are', basket.length, 'items in the basket', '\nIs the basket full?', isFull());
 
 console.log('I added eggs to the basket:', addItem('eggs'), basket);
-console.log('I added eggs to the basket:', addItem('eggs'), basket);
+console.log('I added ears to the basket:', addItem('ears'), basket);
 console.log('I added eyes to the basket:', addItem('eyes'), basket);
-console.log('I added eggs to the basket:', addItem('eggs'), basket);
+console.log('I added ears to the basket:', addItem('ears'), basket);
 console.log('I added eggs to the basket:', addItem('eggs'), basket);
 console.log('I added eggs to the basket:', addItem('eggs'), basket);
 console.log('I added eggs to the basket:', addItem('eggs'), basket);
@@ -62,9 +66,9 @@ console.log('Is it full now?', isFull());
 
 listItems();
 
-console.log('I removed', removeItem('eyes'));
-
-console.log('Now we have', basket);
+console.log('I removed', removeItem('ears'));
+listItems();
+//console.log('Now we have', basket);
 
 empty();
 

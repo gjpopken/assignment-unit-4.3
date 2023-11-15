@@ -2,11 +2,19 @@ console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
 let basket = [];
+const maxItems = 5;
 
+//Required
 function addItem(item) {
-    basket.push(item);
-    return true;
+    if (!isFull(basket)) {
+        basket.push(item);
+        return true;
+    } else {
+        return false;
+    }
 }
+//console.log('Adding eggs to my basket', '\n', addItem('eggs'), '\nBasket:', basket);
+//console.log('Added some items. Now:', addItem('milk'), addItem('water'), addItem('pasta'), basket);
 
 function listItems() {
     let list = '';
@@ -16,21 +24,37 @@ function listItems() {
     console.log(list);
 }
 
+//listItems();
+
 function empty() {
     basket = [];
+    console.log('No more items in the basket:', basket);
 }
 
-
-
-
-
-
-
-console.log('Adding eggs to my basket', '\n', addItem('eggs'), '\nBasket:', basket);
-console.log('Added some items. Now:', addItem('milk'), addItem('water'), addItem('pasta'), basket);
-listItems();
 empty();
-console.log('Put all the items in my trunk. Now:', basket);
+console.log(basket);
+
+
+
+
+
+
+
+
+
+
+//Stretch
+
+
+
+function isFull(array) {
+    if (array.length < maxItems) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 
 // DO NOT MODIFY
 // Used for automated testing

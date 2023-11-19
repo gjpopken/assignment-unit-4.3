@@ -24,9 +24,12 @@ function listItems() {
 
 function empty() {
     console.log('Running Empty:');
-    for (let i = 0; i < basket.length+4; i++) { //works if it runs the loop more times than it needs to...it's like it has to empty my basket and the test basket at once.
+    let length = basket.length; // because the loop seems to be reevaluating the length, I'm setting it once so that the loop will totally empty the basket.
+    for (let i = 0; i < length; i++) { //works if it runs the loop more times than it needs to...it's like it has to empty my basket and the test basket at once.
         console.log('removed', basket.pop());
     }
+    //basket = [];
+    //basket.length = 0;
 }
 
 function isFull() {
@@ -70,6 +73,9 @@ listItems();
 
 console.log('I removed', removeItem('ears'));
 listItems();
+console.log('I removed', removeItem('eyes'));
+listItems();
+console.log('Is it full now?', isFull());
 
 empty();
 
